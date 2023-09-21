@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private MeshRenderer nodeRenderer;
+    [SerializeField] private Color hoverColor;
+
+    private Color defaultColor;
+    private void Start()
     {
-        
+        defaultColor = nodeRenderer.material.color;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnMouseEnter()
     {
-        
+        nodeRenderer.material.color = hoverColor;
+    }
+
+    private void OnMouseExit()
+    {
+        nodeRenderer.material.color = defaultColor;
     }
 }
