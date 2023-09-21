@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRenderer: {fileID: 2094158457044259482}
   hoverColor: {r: 0.29799998, g: 0.29799998, b: 0.29799998, a: 0}
+  turretSpawnPoint: {fileID: 2094158455577601844}
 --- !u!65 &2094158455193832431
 BoxCollider:
   m_ObjectHideFlags: 0

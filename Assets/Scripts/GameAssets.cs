@@ -8,6 +8,9 @@ public class GameAssets : MonoBehaviour
 
     public WayPointHandler wayPointHandler;
 
+    [Header("Turrets")]
+    public Transform simpleTurretPrefab;
+
     void Start()
     {
         if(instance != null && instance != this)

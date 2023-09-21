@@ -65,7 +65,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.TryGetComponent<IDamageable>(out IDamageable iDamageable))
         {
             iDamageable.Damage(strength);

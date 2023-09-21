@@ -77,11 +77,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74478862f367164680f44e1ca7471e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  shootingPosition: {fileID: 0}
+  bulletPrefab: {fileID: 6182305622459487760, guid: cfc2a95ac0b1f024a8017f0388eb0bd8,
+    type: 3}
+  shootingPosition: {fileID: 8719236960332198981}
   timeToBetweenShots: 1
   maxRange: 3
-  turretHead: {fileID: 0}
+  turretHead: {fileID: 5306139382347646952}
+  initialStrength: 5
+  rotationSpeed: 10
 --- !u!1 &5306139381513467353
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ShootingTurret : MonoBehaviour
+public abstract class ShootingTurret : Turret
 {
     [SerializeField] protected Transform bulletPrefab;
     [SerializeField] protected Transform shootingPosition;
