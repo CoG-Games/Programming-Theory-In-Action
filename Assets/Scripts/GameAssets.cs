@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GameAssets : MonoBehaviour
 {
-    public static GameAssets instance;
+    private static GameAssets instance;
+    public static GameAssets Instance { get { return instance; } private set { instance = value; } } //ENCAPSULATION
 
     public WayPointHandler wayPointHandler;
 
@@ -13,13 +14,13 @@ public class GameAssets : MonoBehaviour
 
     void Start()
     {
-        if(instance != null && instance != this)
+        if(Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
+            Instance = this;
         }
     }
 

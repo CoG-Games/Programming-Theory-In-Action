@@ -13,7 +13,7 @@ public class WayPointMovement : MonoBehaviour
 
     private void Start()
     {
-        wayPointHandler = GameAssets.instance.wayPointHandler;
+        wayPointHandler = GameAssets.Instance.wayPointHandler;
         currentWayPointIndex = 0;
         targetWayPoint = wayPointHandler.GetWayPoint(currentWayPointIndex);
     }

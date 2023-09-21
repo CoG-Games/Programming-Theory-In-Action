@@ -43,6 +43,6 @@ public class Node : MonoBehaviour
         {
             return;
         }
-        turret = Turret.Create(GameAssets.instance.simpleTurretPrefab, turretSpawnPoint.position, this);
+        turret = Turret.Create(GameAssets.Instance.simpleTurretPrefab, turretSpawnPoint.position, this);
     }
 }

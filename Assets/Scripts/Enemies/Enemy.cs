@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         healthSystem = new HealthSystem(maxHealth);
         enemyList.Add(this);
+        Debug.Log(enemyList.Count);
     }
 
     public static Enemy GetClosestEnemy(Vector3 position, float maxRange)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleTurret : ShootingTurret
+public class SimpleTurret : ShootingTurret //INHERITANCE
 {
     [SerializeField] private Transform turretHead;
     [SerializeField] private int initialStrength = 5;
@@ -18,12 +18,12 @@ public class SimpleTurret : ShootingTurret
         turretHeadOffset = turretHead.position.y * Vector3.up;
         lastLookDir = turretHead.position + Vector3.left;
     }
-    protected override void Shoot()
+    protected override void Shoot() //POLYMORPHISM
     {
         Bullet.Create(bulletPrefab, shootingPosition.position, turretHead.rotation, enemyTarget, strength);
     }
 
-    protected override Enemy GetTarget()
+    protected override Enemy GetTarget() //POLYMORPHISM
     {
         //Update enemyTarget (typeOf: Transform)
         Enemy closestEnemy = Enemy.GetClosestEnemy(nodePosition, maxRange);

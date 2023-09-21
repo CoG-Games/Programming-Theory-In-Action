@@ -8,6 +8,7 @@ public abstract class Bullet : MonoBehaviour
     [SerializeField] protected float movementSpeed;
 
     protected Enemy enemyTarget;
+    protected Vector3 targetPosition;
     protected int bulletStrength;
 
     public static void Create(Transform bulletPrefab, Vector3 spawnPosition, Quaternion rotation, Enemy enemyTarget, int bulletStrength)
@@ -15,6 +16,18 @@ public abstract class Bullet : MonoBehaviour
         Transform bulletTransform = Instantiate(bulletPrefab, spawnPosition, rotation);
         Bullet bullet = bulletTransform.GetComponent<Bullet>();
         bullet.Setup(enemyTarget, bulletStrength);
+    }
+
+    protected virtual void Update()
+    {
+        if(enemyTarget != null)
+        {
+            targetPosition = enemyTarget.GetAttackPosition();
+        }
+        if(Vector3.Distance(transform.position, targetPosition) < 0.1f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected abstract void HandleMove();

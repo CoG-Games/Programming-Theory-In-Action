@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class SimpleBullet : Bullet
 {
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         HandleMove();
     }
     protected override void HandleMove()
     {
-        transform.LookAt(enemyTarget.GetAttackPosition());
+        transform.LookAt(targetPosition);
         transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
     }
 }
