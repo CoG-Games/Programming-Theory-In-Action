@@ -5,7 +5,8 @@ using UnityEngine;
 public class SimpleTurret : ShootingTurret
 {
     [SerializeField] private Transform turretHead;
-    [SerializeField] private int initialStrength;
+    [SerializeField] private int initialStrength = 5;
+    [SerializeField] private float rotationSpeed = 10f;
 
     private Vector3 lastLookDir;
     private Vector3 turretHeadOffset;
@@ -15,7 +16,7 @@ public class SimpleTurret : ShootingTurret
     {
         strength = initialStrength;
         turretHeadOffset = turretHead.position.y * Vector3.up;
-        lastLookDir = Vector3.forward;
+        lastLookDir = turretHead.position + Vector3.left;
     }
     protected override void Shoot()
     {
@@ -31,7 +32,9 @@ public class SimpleTurret : ShootingTurret
         {
             lastLookDir = enemyTarget.transform.position;
         }
-        transform.LookAt(Vector3.ProjectOnPlane(lastLookDir,Vector3.up) + turretHeadOffset);
+        Vector3 currentLookDir = turretHead.position + turretHead.forward;
+        Vector3 desiredLookDir = Vector3.ProjectOnPlane(lastLookDir, Vector3.up) + turretHeadOffset;
+        turretHead.LookAt(Vector3.Slerp(currentLookDir, desiredLookDir, rotationSpeed * Time.deltaTime));
         return closestEnemy;
     }
 }
